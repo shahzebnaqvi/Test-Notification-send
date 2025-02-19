@@ -45,7 +45,7 @@ class PushNotificationServiceStaffs {
         'message': {
           'token': deviceToken,
           'notification': {'title': title, 'body': body},
-          'data': {'tripID': "tripID"}
+          'data': {'extra': "$body"}
         }
       };
 

@@ -46,73 +46,75 @@ class _NotificationScreenState extends State<NotificationScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(  keyboardType: TextInputType.multiline,
-minLines: 3,maxLines: 20,
-              controller: serverJsonController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Server Json',
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(  keyboardType: TextInputType.multiline,
+          minLines: 3,maxLines: 20,
+                controller: serverJsonController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Server Json',
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () async {
-                final String serverKey =
-                    await PushNotificationServiceStaffs.getAccessToken(
-                        serverJsonController.text);
-                serverKeyController.text = serverKey;
-              },
-              child: Text('Get Server Key'),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              controller: serverKeyController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Server Key',
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () async {
+                  final String serverKey =
+                      await PushNotificationServiceStaffs.getAccessToken(
+                          serverJsonController.text);
+                  serverKeyController.text = serverKey;
+                },
+                child: Text('Get Server Key'),
               ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              controller: projectKeyController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Project Key',
+              SizedBox(height: 20),
+              TextField(
+                controller: serverKeyController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Server Key',
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              controller: tokenController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Token',
+              SizedBox(height: 20),
+              TextField(
+                controller: projectKeyController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Project Key',
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              controller: titleController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Title',
+              SizedBox(height: 20),
+              TextField(
+                controller: tokenController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Token',
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              controller: bodyController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Body',
+              SizedBox(height: 20),
+              TextField(
+                controller: titleController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Title',
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: sendNotification,
-              child: Text('Send Notification'),
-            ),
-          ],
+              SizedBox(height: 20),
+              TextField(
+                controller: bodyController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Body',
+                ),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: sendNotification,
+                child: Text('Send Notification'),
+              ),
+            ],
+          ),
         ),
       ),
     );

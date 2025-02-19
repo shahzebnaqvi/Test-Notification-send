@@ -49,11 +49,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
+            TextField(  keyboardType: TextInputType.multiline,
+minLines: 3,maxLines: 20,
               controller: serverJsonController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'ServerKey',
+                labelText: 'Server Json',
               ),
             ),
             SizedBox(height: 20),
